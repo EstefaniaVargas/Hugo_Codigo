@@ -1,0 +1,6 @@
+{{ $image := .Get 0}}
+{{ $width := .Get 1}}
+{{ $height := .Get 2}}
+{{ $aling := .Get 3}}
+
+<img align= {{$aling}} src= {{$image}} width={{$width}} height={{$height}} alt ="Displayimg" >

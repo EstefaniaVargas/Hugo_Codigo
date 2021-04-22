@@ -1,0 +1,12 @@
+baseURL = "http://Pruebas-Bancolombia-3.0.com/"
+languageCode = "en-us"
+title = ""
+theme = "Theme_Bancolombia"
+
+[outputs]
+  home = ["HTML", "JSON"]
+
+
+
+
+

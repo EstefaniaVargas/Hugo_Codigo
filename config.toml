@@ -1,0 +1,10 @@
+
+baseURL = "http://example.org"
+languageCode = "en-us"
+title = "First Site"
+theme= "tale-hugo-master"
+
+[outputs]
+  home = ["HTML", "JSON"]
+  
+

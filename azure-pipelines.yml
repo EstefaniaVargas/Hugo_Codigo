@@ -10,13 +10,11 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-
-- task: PowerShell@2
+- task: HugoTask@1
   inputs:
-    targetType: 'inline'
-    script: 'hugo/hugo.exe'
-
-
+    source:
+    destination:'$(System.DefaultWorkingDirectory)/public'
+    
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(System.DefaultWorkingDirectory)/public'

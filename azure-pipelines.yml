@@ -10,8 +10,7 @@ steps:
     source: 
     destination: '$(System.DefaultWorkingDirectory)/public'
 
-- task: PublishBuildArtifacts@1
+- task: PublishPipelineArtifact@1
   inputs:
-  targetPath:'$(System.DefaultWorkingDirectory)/public'
-  artifact: ''
-  publishLocation: 'pipeline'
+    targetPath: '$(System.DefaultWorkingDirectory)/public'
+    publishLocation: 'pipeline'

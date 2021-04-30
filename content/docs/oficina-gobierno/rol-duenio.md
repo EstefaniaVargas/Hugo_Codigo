@@ -15,3 +15,5 @@ Esta es la descripción delRol dueño
 <!--more-->
 
 ## Descripción
+
+Información sobre el rol dueño

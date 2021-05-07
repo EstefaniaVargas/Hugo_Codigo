@@ -18,7 +18,7 @@ steps:
 
 - task: GitHubPagesPublish@1
   inputs:
-    docPath: '$(System.DefaultWorkingDirectory)\Documentation\site\*'
+    docPath: '$(System.DefaultWorkingDirectory)\_EstefaniaVargas.Hugo_Codigo\Job\*'
     githubusername: 'EstefaniaVargas'
     githubemail: 'vargasclavijoestefania@gmail.com'
     githubaccesstoken: '$(token_hugo)'

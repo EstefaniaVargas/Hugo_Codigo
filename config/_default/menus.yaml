@@ -1,7 +1,0 @@
-main:
-  - name: Principal
-    url: '#about'
-    weight: 1
-  - name: Documentacion
-    url: /docs/
-    weight: 3

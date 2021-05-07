@@ -8,9 +8,9 @@ steps:
 - task: HugoTask@1
   inputs:
     source: 
-    destination: '$(System.DefaultWorkingDirectory)'
+    destination: '$(System.DefaultWorkingDirectory)/themes'
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(System.DefaultWorkingDirectory)'
+    targetPath: '$(System.DefaultWorkingDirectory)/themes'
     publishLocation: 'pipeline'

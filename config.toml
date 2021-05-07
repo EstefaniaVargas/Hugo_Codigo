@@ -6,7 +6,7 @@ theme= "hugo-starter-theme"
 
 [outputs]
   home = ["HTML", "JSON"]
-#Condiguracion de lista de paginas para documentacion, se agrega link acceso a diferentes carpetas
+#Configuracion de lista de paginas para documentacion, se agrega link acceso a diferentes carpetas
 # del markdown
 [menu]
 

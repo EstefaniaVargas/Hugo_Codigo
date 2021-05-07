@@ -4,6 +4,8 @@ title = "Bancolombia"
 theme= "hugo-starter-theme"
 
 
+[outputs]
+  home = ["HTML", "JSON"]
 #Condiguracion de lista de paginas para documentacion, se agrega link acceso a diferentes carpetas
 # del markdown
 [menu]
@@ -20,8 +22,6 @@ theme= "hugo-starter-theme"
     url ="/extra" #Direccion
 
 
-[outputs]
-  home = ["HTML", "JSON"]
     
 
 

@@ -15,13 +15,3 @@ steps:
   inputs:
     targetPath: '$(System.DefaultWorkingDirectory)/public'
     publishLocation: 'pipeline'
-
-- task: GitHubPagesPublish@1
-  inputs:
-    docPath: '$(System.DefaultWorkingDirectory)\_EstefaniaVargas.Hugo_Codigo\Job\*'
-    githubusername: 'EstefaniaVargas'
-    githubemail: 'vargasclavijoestefania@gmail.com'
-    githubaccesstoken: '$(token_hugo)'
-    repositoryname: 'EstefaniaVargas.github.io'
-    branchname: 'master'
-    commitmessage: 'Automated Release $(Release.ReleaseId)'

@@ -1,0 +1,29 @@
+baseURL = "https://estefaniavargas.github.io"
+languageCode = "en-us"
+title = "Bancolombia"
+theme= "hugo-starter-theme"
+
+
+[outputs]
+  home = ["HTML", "JSON"]
+#Condiguracion de lista de paginas para documentacion, se agrega link acceso a diferentes carpetas
+# del markdown
+[menu]
+
+  [[menu.main]]
+    identifier = "documentacion" #Se pone el nombre de la carpeta que se encuentra en content
+    name ="Documentacion" #El que se observara en la pagina
+    url ="/documentacion" #Direccion
+    
+  
+  [[menu.main]]
+    identifier = "extra" #Se pone el nombre de la carpeta que se encuentra en content
+    name ="Page extra" #El que se observara en la pagina
+    url ="/extra" #Direccion
+
+
+    
+
+
+
+

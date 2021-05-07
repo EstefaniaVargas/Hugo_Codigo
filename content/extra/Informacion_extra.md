@@ -6,5 +6,5 @@ draft: true
 
 # Hello World
 
-Página sobe información extra, Hello World!!!
+Página sobre información extra, Hello World!!!
 

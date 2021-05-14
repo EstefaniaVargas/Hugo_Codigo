@@ -1,0 +1,33 @@
+<!--
+  Este es el menú inicio, que se agrega al header
+-->
+
+<header class="site-header">
+    <nav class="site-nav">
+      <!--Clase para fijar Pagina principal y al mismo tiempo link de retorno a principal-->
+
+ 
+    
+      <!--Crea listas de las carpetas que estan en content-->
+      {{ range.Site.Menus.main }}
+        
+        <!--<body style="bgcolor: {{ $.Site.Params.color }};">-->
+        <section class="mainMenu">
+          <ul>
+          
+              <!--Parametros, se llaman desde config.toml-->
+              <a  style="text-decoration: none;color:white;"class="nav-link" href="{{ .URL }}">
+                {{ if .Pre }}
+                {{ $icon := printf "<i data-feather=\"%s\"></i> " .Pre | safeHTML }}
+                {{ $icon }}
+                {{ end }}
+                {{ $text := print .Name | safeHTML }}
+                {{ $text }}
+                </a>
+              
+          </ul>
+        </section>
+      {{ end }}
+    </nav>
+  </header>
+ 

@@ -1,0 +1,27 @@
+<header class="site-header0">
+    <nav class="site-nav0">
+        <!--Clase para fijar Pagina principal y al mismo tiempo link de retorno a principal-->
+
+        <!--Crea listas de las carpetas que estan en content-->
+        {{ range.Site.Menus.main }}
+
+        <!--<body style="bgcolor: {{ $.Site.Params.color }};">-->
+        <section class="mainMenu0">
+            <ul>
+                <li>
+                    <!--Parametros, se llaman desde config.toml-->
+                    <a style="text-decoration: none;" class="nav-link0" href="{{ .URL }}">
+                        {{ if .Pre }}
+                        {{ $icon := printf "<i data-feather=\"%s\"></i> " .Pre | safeHTML }}
+                        {{ $icon }}
+                        {{ end }}
+                        {{ $text := print .Name | safeHTML }}
+                        {{ $text }}
+                    </a>
+                </li>
+            </ul>
+        </section>
+        {{ end }}
+    </nav>
+</header>
+

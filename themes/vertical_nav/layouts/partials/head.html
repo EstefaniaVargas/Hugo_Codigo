@@ -1,0 +1,27 @@
+<head class="site-head">
+		
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--link tambien se usa para llamar contenido por ruta-->
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/style.css" type="text/css" media="all" />
+    <!--.Site.BaseURL se usa ara direccionar rutas relacionas ya sea local o desplegado/remoto-->
+    <!--Crear una clase del logo-->
+
+        <a style="text-decoration:none" href="https://www.grupobancolombia.com/personas">
+            <div class="head__content">
+            
+                <div class="imagen-head">
+                    <img src="{{ .Site.BaseURL }}/images/Logo_Cut.png" alt="Logo" width="60%x">
+                </div>
+            
+                <div>
+                    <h1 class="titulo-principal"> Grupo Bancolombia </h1>
+                </div>
+            
+            </div>
+        </a>
+        
+
+
+</head>

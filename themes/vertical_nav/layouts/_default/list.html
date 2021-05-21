@@ -1,0 +1,47 @@
+<!--Página para generar listas. Documentación sobre los roles-->
+<!DOCTYPE html>
+<html>
+
+
+{{ partial "head.html" . }}
+
+
+<body>
+    <section>
+        {{- partial "header0.html" . -}}
+    </section>
+
+    <div class="body__content">
+        <div class="menu-secundario">
+            {{ partial "header1.html" . }}
+        </div>
+
+        <div class="cotenido-principal">
+            <main class="content">
+                <h1>{{ .Title }}</h1>
+                {{ .Content }}
+                <!--
+                Recorrido de los markdowns que se encuentran en folder documentacion
+                Crea una lista de los markdown creados en documentacion
+                "range.Data.Pages" equivalente a un for
+                -->
+                {{ range.Data.Pages }}
+                <article class="post-snippet">
+                    <h3>
+                        <!--Crea un link con el titulo de cada markdown para poder 
+                        con un clic ingresaral contenido del mdRelPermalink"-->
+                        <a style="text-decoration:none; color:black" href="{{ .RelPermalink }}">{{ .Title }}</a>
+
+                    </h3>
+                </article>
+                {{ end }}
+            </main>
+        </div>
+    </div>
+</body>
+
+
+{{ partial "footer.html" . }}
+
+
+</html>

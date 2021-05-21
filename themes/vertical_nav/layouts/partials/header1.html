@@ -1,0 +1,26 @@
+<!--Este es el menú inicio, que se agrega al header-->
+
+<header>
+    <nav class="site-nav1">
+        
+            <ul>
+                {{ $sectionPages := where .Site.Pages "Section" "documentacion"}}
+                {{ range $sectionPages }}
+                                
+                <li class="menu-vert"> 
+                    <a href="{{ .Permalink }}">{{ .Name }}</a>
+                    
+                    <ul>
+                        {{range .CurrentSection.Pages}}
+                        <li class= "submenu-vert"> 
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                    
+                </li>
+                {{ end }}
+            </ul>
+        
+    </nav>
+</header>

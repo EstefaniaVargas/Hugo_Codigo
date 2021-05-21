@@ -4,8 +4,8 @@
     <nav class="site-nav1">
         
             <ul>
-                {{ $sectionPages := where .Site.Pages "Section" "documentacion"}}
-                {{ range $sectionPages }}
+                {{ range where .Site.Pages "Section" "documentacion" }}
+                {{ if eq (print .Parent) (print ($.Site.GetPage "documentacion")) }}
                                 
                 <li class="menu-vert"> 
                     <a href="{{ .Permalink }}">{{ .Name }}</a>
@@ -19,6 +19,7 @@
                     </ul>
                     
                 </li>
+                {{ end }}
                 {{ end }}
             </ul>
         

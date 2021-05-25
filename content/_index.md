@@ -1,5 +1,5 @@
 ---
-title: "Content"
+title: "Home"
 date: 2021-05-06T14:52:41-05:00
 
 ---

@@ -16,6 +16,15 @@
                     {{ range .CurrentSection.Sections -}}
                     <li class="submenu-vert">
                         <a href="{{ .Permalink }}">{{ .Title }}</a>
+
+                        <ul>
+                            {{ range .CurrentSection.Pages -}}
+                            <li class="submenu-vert-level2">
+                                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+
                     </li>
                     {{ end }}
                 </ul>

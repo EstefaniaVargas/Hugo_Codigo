@@ -7,6 +7,9 @@ relativeURLs = true
 [outputs]
   home = ["HTML", "JSON"]
 
+[params]
+  custom_css = ["/css/style.css"]
+
 [menu]
   [[menu.main]]
     identifier = "home"
@@ -26,6 +29,11 @@ relativeURLs = true
     url = "/extra"
     weight = 3
 
+  [[menu.main]]
+    identifier = "hugo"
+    name = "Hugo"
+    url = "/hugo"
+    weight = 4
 
 
 

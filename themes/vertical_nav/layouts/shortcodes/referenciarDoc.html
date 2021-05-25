@@ -1,0 +1,12 @@
+<!-- Shortcode para la referenciacion de documentos-->
+{{ $nombre := .Get 0}}
+{{ $documento := .Get 1}}
+
+{{ range .Site.Pages}}
+    {{ if eq (print .Title) (print ($documento)) }}
+        <b>
+            <a style="text-decoration:none; color:black" href="{{ .RelPermalink }}">{{ $nombre }}</a>
+        </b>
+
+    {{end}}
+{{end}}

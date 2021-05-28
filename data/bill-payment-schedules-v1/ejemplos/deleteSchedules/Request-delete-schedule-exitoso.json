@@ -1,0 +1,18 @@
+{
+    "data":{
+       "biller":{
+          "agreement":{
+             "code":"63432",
+             "bill":{
+                "payer":{
+                   "identification":{
+                      "type":"TIPDOC_FS001",
+                      "number":"1037889710"
+                   }
+                },
+                "reference":"720015"
+             }
+          }
+       }
+    }
+ }

@@ -5,7 +5,7 @@
 {{ range .Site.Pages}}
     {{ if eq (print .Title) (print ($documento)) }}
         <b>
-            <a style="text-decoration:none; color:black" href="{{ .RelPermalink }}">{{ $nombre }}</a>
+            <a style="text-decoration:none; color:rgb(21, 16, 82)" href="{{ .RelPermalink }}">{{ $nombre }}</a>
         </b>
 
     {{end}}

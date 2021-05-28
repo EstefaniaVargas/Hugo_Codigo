@@ -1,0 +1,15 @@
+{
+    "meta": {
+        "_messageId": "Test2135",
+        "_requestDateTime": "2021-04-15T09:18:29.670Z",
+        "_applicationId": "002535cc-4df7-4cc8-9147-76358b2b19a0"
+    },
+    "status": "400",
+    "title": "Bad Request",
+    "errors": [
+        {
+            "code": "SA400",
+            "detail": "El numero de documento es obligatorio"
+        }
+    ]
+}

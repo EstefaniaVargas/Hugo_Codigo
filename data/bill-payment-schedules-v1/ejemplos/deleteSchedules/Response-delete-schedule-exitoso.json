@@ -1,0 +1,21 @@
+{
+    "meta":{
+       "_messageId":"PRUEBAS014",
+       "_requestDateTime":"2021-03-25T10:52:00.016Z",
+       "_applicationId":"002535cc-4df7-4cc8-9147-76358b2b19a0"
+    },
+    "data":{
+       "header":{
+          "type":"automatic-debit-delete",
+          "id":"63432"
+       },
+       "bill":{
+          "status":"Success",
+          "updateDate":"2021-03-25T10:52:01.166634-05:00",
+          "descripcion":"279875"
+       }
+    },
+    "links":{
+       "self":"https://internal-apigateway-qa.bancolombia.corp/int/testing/v1/operations/cross-product/payments/bill-payments/bills/schedules/automatic-debit"
+    }
+ }

@@ -1,0 +1,482 @@
+{
+    "metadata": {
+        "messages": {
+            "API": {
+                "format": "application/vnd.bancolombia.v4+json"
+            },
+            "INT": {
+                "format": "SOAP"
+            }
+        },
+        "mapping": {
+            "request": {
+                "from": "API",
+                "to": "INT"
+            },
+            "response": {
+                "from": "INT",
+                "to": "API"
+            },
+            "businessException": {
+                "from": "INT",
+                "to": "API"
+            },
+            "systemException": {
+                "to": "API"
+            }
+        }
+    },
+    "request": {
+        "Header": {
+            "requestHeader": {
+                "systemId": {
+                    "from": "",
+                    "to": "Header/requestHeader/systemId",
+                    "rule": "default value",
+                    "description": "Se debe tomar el valor del nombre del aplicacion de la variable de contexto 'client.app.name' luego se debe hacer un sub srint para tomar el AW consumidor, despues del caracter _  guion bajo, ejemplo SVECONSTRUCTOR_AW1281  Tomar el valor AW1281"
+                },
+                "messageId": {
+                    "from": "",
+                    "to": "Header/requestHeader/messageId",
+                    "rule": "default value",
+                    "description": "Este valor siempre debe ser diferente para cada transacción y es requerido desde el consumidor"
+                },
+                "timestamp": {
+                    "from": "",
+                    "to": "Header/requestHeader/timestamp",
+                    "rule": "default value",
+                    "description": "Asignar la fecha en al que se realizó la solicitud en formato ISO8601 Ej: 2018-02-27T00:00:00.000Z"
+                }
+            },
+            "requestData": {
+                "userId": {
+                    "userName": {
+                        "from": "",
+                        "to": "Header/requestData/userId/userName",
+                        "rule": "default value",
+                        "description": "Se debe tomar el valor del nombre del aplicacion de la variable de contexto client.app.name luego se debe hacer un sub srint para tomar el AW consumidor, antes del caracter _  guie bajo: ejemplo SVECONSTRUCTOR_AW1281  Tomar el valor SVECONSTRUCTOR"
+                    }
+                },
+                "destination": {
+                    "name": {
+                        "from": "",
+                        "to": "Header/requestData/destination/userName",
+                        "rule": "default value",
+                        "description": "GestionPagoProgramado"
+                    },
+                    "namespace": {
+                        "from": "",
+                        "to": "Header/requestData/destination/namespace",
+                        "rule": "default value",
+                        "description": "http://grupobancolombia.com/intf/Producto/CashManagement/PagosRecaudos/gestionPagoProgramado/V1.0 "
+                    },
+                    "operation": {
+                        "from": "",
+                        "to": "Header/requestData/destination/operation",
+                        "rule": "default value",
+                        "description": "eliminarDebito"
+                    }
+                }
+            }
+        },
+        "Body": {
+            "eliminarDebito": {
+                "canal": {
+                    "from": "Header/requestHeader/channel",
+                    "to": "Body/eliminarDebito/canal",
+                    "rule": "assign"
+                },    
+                "fechaSolicitud": {
+                    "from": "",
+                    "to": "Body/eliminarDebito/fechaSolicitud",
+                    "rule": "assign a default value"
+                },                             
+                "recaudador": {
+                    "convenio": {                        
+                        "codigo": {
+                            "from": "Body/data/biller/agreement/code",
+                            "to": "Body/consultarParametros/recaudador/convenio/codigo",
+                            "rule": "assign"
+                        },
+                        "factura": {
+                            "pagador": {
+                                "identificacion": {                        
+                                    "numero": {
+                                        "from": "Body/data/biller/agreement/bill/payer/identifiaction/number",
+                                        "to": "Body/eliminarDebito/recaudador/convenio/factura/pagador/identificacion/numero",
+                                        "rule": "assign"
+                                    },
+                                    "tipo": {
+                                        "from": "Body/data/biller/agreement/bill/payer/identifiaction/type",
+                                        "to": "Body/eliminarDebito/recaudador/convenio/factura/pagador/identificacion/tipo",
+                                        "rule": "assign",
+                                        "domain": "TIPDOC_FS000, TIPDOC_FS001, TIPDOC_FS002, TIPDOC_FS003, TIPDOC_FS004, TIPDOC_FS005, TIPDOC_FS006, TIPDOC_FS007, TIPDOC_FS008, TIPDOC_FS009, TIPDOC_FS010"
+                                    }
+                                }                                 
+                            },
+                            "referencia": {
+                                "from": "Body/data/biller/agreement/bill/reference",
+                                "to": "Body/eliminarDebito/recaudador/convenio/factura/referencia",
+                                "rule": "assign"
+                            }
+                        }                        
+                    }                   
+                }
+            }
+        }
+    },
+    "response": {
+        "Header": {
+            "Content-Type": {
+                "from": "",
+                "to": "Header/Content-Type",
+                "rule": "default value",
+                "description": "application/vnd.bancolombia.v4+json; charset=utf-8"
+            },
+            "API-Version": {
+                "from": "",
+                "to": "Header/API-Version",
+                "rule": "default value",
+                "description": "Obtener por medio de una variable de contexto (api.version) la version del api consumida y asignarlo al campo destino."
+            },
+            "RateLimit-Limit": {
+                "from": "",
+                "to": "Header/RateLimit-Limit",
+                "rule": "default value",
+                "description": "Obtener por medio de una variable de contexto (plan.rate-limit) la tasa de peticiones permitidas y asignarlo al campo destino."
+            },
+            "Message-Id": {
+                "from": "",
+                "to": "Header/Message-Id",
+                "rule": "default value",
+                "description": "Se debe tomar el messageId de la solicitud y asignarlo al campo destino"
+            },
+            "Strict-Transport-Security": {
+                "from": "",
+                "to": "Header/Strict-Transport-Security",
+                "rule": "default value",
+                "description": "max-age=31536000; includeSubDomains"
+            },
+            "X-Frame-Options": {
+                "from": "",
+                "to": "Header/X-Frame-Options",
+                "rule": "default value",
+                "description": "DENY"
+            },
+            "Content-Security-Policy": {
+                "from": "",
+                "to": "Header/Content-Security-Policy",
+                "rule": "default value",
+                "description": "default-src 'self' *.bancolombia.com"
+            },
+            "X-Content-Type-Options": {
+                "from": "",
+                "to": "Header/CX-Content-Type-Options",
+                "rule": "default value",
+                "description": "nosniff"
+            },
+            "Cache-Control": {
+                "from": "",
+                "to": "Header/Cache-Control",
+                "rule": "default value",
+                "description": "private, no-cache, no-store, max-age=0, no-transfor"
+            },
+            "Pragma": {
+                "from": "",
+                "to": "Header/Pragma",
+                "rule": "default value",
+                "description": "no-cache"
+            },
+            "Expires": {
+                "from": "",
+                "to": "Header/Expires",
+                "rule": "default value",
+                "description": "0"
+            }
+        },
+        "Body": {
+            "meta": {           
+                "_messageId": {
+                    "from": "",
+                    "to": "Body/meta/_messageId",
+                    "rule": "default value",
+                    "description": "Se debe tomar el messageId de la solicitud y asignarlo al campo destino"
+                },
+                "_requestDateTime": {
+                    "from": "",
+                    "to": "Body/meta/_requestDateTime",
+                    "rule": "default value",
+                    "description": "Se debe tomar el timestamp en el que se realizó la solicitud y asignarlo al campo destino en formato estandar ISO 8601 Ej: 2018-04-20T11:51:44.920Z"
+                },
+                "_applicationId": {
+                    "from": "",
+                    "to": "Body/meta/_applicationId",
+                    "rule": "default value",
+                    "description": "Obtener por medio de una variable de contexto (client.app.id) el Client Id del cliente (Aplicación identificada para el consumo) y asignarlo al campo destino."
+                }                              
+            },       
+            "data": {
+                "bill": {
+                    "schedule": {
+                        "status": {
+                            "from": "eliminarDebitoResponse/Body/factura/programacion/estado",
+                            "to": "Body/data/bill/schedule/status",
+                            "rule": "assign"
+                        },
+                        "deleteDate": {
+                            "from": "eliminarDebitoResponse/Body/factura/programacion/fechaEliminacion",
+                            "to": "Body/data/bill/schedule/deleteDate",
+                            "rule": "assign"
+                        },
+                        "description": {
+                            "from": "eliminarDebitoResponse/Body/factura/programacion/descripcionRespuesta",
+                            "to": "Body/data/bill/schedule/description",
+                            "rule": "assign"
+                        }
+                    }
+                }
+
+            }
+        }
+    },
+    "businessException": {
+        "Header": {
+            "Content-Type": {
+                "from": "",
+                "to": "Header/Content-Type",
+                "rule": "default value",
+                "description": "application/vnd.bancolombia.v4+json; charset=utf-8"
+            },
+            "API-Version": {
+                "from": "",
+                "to": "Header/API-Version",
+                "rule": "default value",
+                "description": "Obtener por medio de una variable de contexto (api.version) la version del api consumida y asignarlo al campo destino."
+            },
+            "RateLimit-Limit": {
+                "from": "",
+                "to": "Header/RateLimit-Limit",
+                "rule": "default value",
+                "description": "Obtener por medio de una variable de contexto (plan.rate-limit) la tasa de peticiones permitidas y asignarlo al campo destino."
+            },
+            "Message-Id": {
+                "from": "",
+                "to": "Header/Message-Id",
+                "rule": "default value",
+                "description": "Se debe tomar el messageId de la solicitud y asignarlo al campo destino"
+            },
+            "Strict-Transport-Security": {
+                "from": "",
+                "to": "Header/Strict-Transport-Security",
+                "rule": "default value",
+                "description": "max-age=31536000; includeSubDomains"
+            },
+            "X-Frame-Options": {
+                "from": "",
+                "to": "Header/X-Frame-Options",
+                "rule": "default value",
+                "description": "DENY"
+            },
+            "Content-Security-Policy": {
+                "from": "",
+                "to": "Header/Content-Security-Policy",
+                "rule": "default value",
+                "description": "default-src 'self' *.bancolombia.com"
+            },
+            "X-Content-Type-Options": {
+                "from": "",
+                "to": "Header/CX-Content-Type-Options",
+                "rule": "default value",
+                "description": "nosniff"
+            },
+            "Cache-Control": {
+                "from": "",
+                "to": "Header/Cache-Control",
+                "rule": "default value",
+                "description": "private, no-cache, no-store, max-age=0, no-transfor"
+            },
+            "Pragma": {
+                "from": "",
+                "to": "Header/Pragma",
+                "rule": "default value",
+                "description": "no-cache"
+            },
+            "Expires": {
+                "from": "",
+                "to": "Header/Expires",
+                "rule": "default value",
+                "description": "0"
+            }
+        },
+        "Body": {
+            "meta": {
+                "_messageId": {
+                    "from": "",
+                    "to": "Body/meta/_messageId",
+                    "rule": "default value",
+                    "description": "Se debe tomar el messageId de la solicitud y asignarlo al campo destino"
+                },
+                "_requestDateTime": {
+                    "from": "",
+                    "to": "Body/meta/_requestDateTime",
+                    "rule": "default value",
+                    "description": "Se debe tomar el timestamp en el que se realizó la solicitud y asignarlo al campo destino en formato estandar ISO 8601 Ej: 2018-04-20T11:51:44.920"
+                },
+                "_applicationId": {
+                    "from": "",
+                    "to": "Body/meta/_applicationId",
+                    "rule": "default value",
+                    "description": "Obtener por medio de una variable de contexto (client.app.id) el Client Id del cliente (Aplicación identificada para el consumo) y asignarlo al campo destino."
+                }
+            },
+            "status": {
+                "from": "",
+                "to": "Body/status",
+                "rule": "translate",
+                "description": "El Status code HTTP entregado al homologar la excepción en la tabla de Excepciones de negocio"
+            },
+            "title": {
+                "from": "",
+                "to": "Body/title",
+                "rule": "translate",
+                "description": "El title entregado al homologar la excepción en la tabla de Excepciones de negocio"
+            },
+            "errors": [
+                {
+                    "code": {
+                        "from": "Body/response",
+                        "to": "Body/errors[]/code",
+                        "rule": "translate",
+                        "description": "El Código API entregado al homologar la excepción en la tabla de Excepciones de negocio"
+                    },
+                    "detail": {
+                        "from": "Body/message",
+                        "to": "Body/errors[]/detail",
+                        "rule": "translate",
+                        "description": "El Descripción entregado al homologar la excepción en la tabla de Excepciones de negocio"
+                    }
+                }
+            ]
+        }
+    },
+    "systemException": {
+        "Header": {
+            "Content-Type": {
+                "from": "",
+                "to": "Header/Content-Type",
+                "rule": "default value",
+                "description": "application/vnd.bancolombia.v4+json; charset=utf-8"
+            },
+            "API-Version": {
+                "from": "",
+                "to": "Header/API-Version",
+                "rule": "default value",
+                "description": "Obtener por medio de una variable de contexto (api.version) la version del api consumida y asignarlo al campo destino."
+            },
+            "RateLimit-Limit": {
+                "from": "",
+                "to": "Header/RateLimit-Limit",
+                "rule": "default value",
+                "description": "Obtener por medio de una variable de contexto (plan.rate-limit) la tasa de peticiones permitidas y asignarlo al campo destino."
+            },
+            "Message-Id": {
+                "from": "",
+                "to": "Header/Message-Id",
+                "rule": "default value",
+                "description": "Se debe tomar el messageId de la solicitud y asignarlo al campo destino"
+            },
+            "Strict-Transport-Security": {
+                "from": "",
+                "to": "Header/Strict-Transport-Security",
+                "rule": "default value",
+                "description": "max-age=31536000; includeSubDomains"
+            },
+            "X-Frame-Options": {
+                "from": "",
+                "to": "Header/X-Frame-Options",
+                "rule": "default value",
+                "description": "DENY"
+            },
+            "Content-Security-Policy": {
+                "from": "",
+                "to": "Header/Content-Security-Policy",
+                "rule": "default value",
+                "description": "default-src 'self' *.bancolombia.com"
+            },
+            "X-Content-Type-Options": {
+                "from": "",
+                "to": "Header/CX-Content-Type-Options",
+                "rule": "default value",
+                "description": "nosniff"
+            },
+            "Cache-Control": {
+                "from": "",
+                "to": "Header/Cache-Control",
+                "rule": "default value",
+                "description": "private, no-cache, no-store, max-age=0, no-transfor"
+            },
+            "Pragma": {
+                "from": "",
+                "to": "Header/Pragma",
+                "rule": "default value",
+                "description": "no-cache"
+            },
+            "Expires": {
+                "from": "",
+                "to": "Header/Expires",
+                "rule": "default value",
+                "description": "0"
+            }
+        },
+        "Body": {
+            "meta": {
+                "_messageId": {
+                    "from": "",
+                    "to": "Body/meta/_messageId",
+                    "rule": "default value",
+                    "description": "Se debe tomar el messageId de la solicitud y asignarlo al campo destino"
+                },
+                "_requestDateTime": {
+                    "from": "",
+                    "to": "Body/meta/_requestDateTime",
+                    "rule": "default value",
+                    "description": "Se debe tomar el timestamp en el que se realizó la solicitud y asignarlo al campo destino en formato estandar ISO 8601 Ej: 2018-04-20T11:51:44.920"
+                },
+                "_applicationId": {
+                    "from": "",
+                    "to": "Body/meta/_applicationId",
+                    "rule": "default value",
+                    "description": "Obtener por medio de una variable de contexto (client.app.id) el Client Id del cliente (Aplicación identificada para el consumo) y asignarlo al campo destino."
+                }
+            },
+            "status": {
+                "from": "",
+                "to": "Body/status",
+                "rule": "translate",
+                "description": "El Status code HTTP entregado al homologar la excepción en la tabla de Excepciones de sistema"
+            },
+            "title": {
+                "from": "",
+                "to": "Body/title",
+                "rule": "translate",
+                "description": "El title entregado al homologar la excepción en la tabla de Excepciones de sistema"
+            },
+            "errors": [
+                {
+                    "code": {
+                        "from": "Body/response",
+                        "to": "Body/errors[]/code",
+                        "rule": "translate",
+                        "description": "El Código API entregado al homologar la excepción en la tabla de Excepciones de sistema"
+                    },
+                    "detail": {
+                        "from": "Body/message",
+                        "to": "Body/errors[]/detail",
+                        "rule": "translate",
+                        "description": "El Descripción entregado al homologar la excepción en la tabla de Excepciones de sistema"
+                    }
+                }
+            ]
+        }
+    }
+}

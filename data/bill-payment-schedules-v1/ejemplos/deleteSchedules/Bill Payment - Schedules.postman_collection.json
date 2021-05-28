@@ -1,0 +1,2639 @@
+{
+	"info": {
+		"_postman_id": "5d68d331-4f3b-490c-92c0-7cc17539802b",
+		"name": "Bill Payment - Schedules",
+		"description": "Esta Api habilita permitirá realizar gestión sobre la programación de pago de las facturas previamente inscritas.\n\nContact Support:\n Name: Bancolombia API Working Group\n Email: apigroup@bancolombia.com.co",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "bills/schedules/automatic-debit",
+			"item": [
+				{
+					"name": "Programar el debito automático para para el pago de una factura inscrita",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "X-IBM-Client-Secret",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+								"key": "X-Client-Certificate",
+								"value": "<string>"
+							},
+							{
+								"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+								"key": "message-id",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.bancolombia.v4+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\",\n                    \"reference2\": \"<string>\",\n                    \"reference3\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bills",
+								"schedules",
+								"automatic-debit"
+							]
+						},
+						"description": "Esta Api permite crear la programación de un débito automático para una factura inscrita."
+					},
+					"response": [
+						{
+							"name": "Respuesta exitosa.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\",\n                    \"reference2\": \"<string>\",\n                    \"reference3\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-API-Version",
+									"value": "-16392116.43832703",
+									"description": "Versionamiento semantico de la API"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "-54669337",
+									"description": "Límite de solicitudes por hora"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"data\": {\n  \"bill\": {\n   \"schedule\": {\n    \"status\": \"in nostrud sint\",\n    \"createDate\": \"1987-11-07\"\n   }\n  }\n },\n \"links\": {\n  \"self\": \"https://YvkSYeU.zcneegBTTkKOWq6sTXxI0\"\n }\n}"
+						},
+						{
+							"name": "El estado del recurso presenta conflictos con los datos de la solicitud.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\",\n                    \"reference2\": \"<string>\",\n                    \"reference3\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Recurso no encontrado.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\",\n                    \"reference2\": \"<string>\",\n                    \"reference3\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Tiempo de respuesta del proveedor del servicio excedido.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\",\n                    \"reference2\": \"<string>\",\n                    \"reference3\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Gateway Timeout",
+							"code": 504,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Error interno del servidor.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\",\n                    \"reference2\": \"<string>\",\n                    \"reference3\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "No tiene permisos para acceder al recurso.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\",\n                    \"reference2\": \"<string>\",\n                    \"reference3\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Credenciales incorrectas.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\",\n                    \"reference2\": \"<string>\",\n                    \"reference3\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Error inesperado.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\",\n                    \"reference2\": \"<string>\",\n                    \"reference3\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Error en la solicitud.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\",\n                    \"reference2\": \"<string>\",\n                    \"reference3\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"quis Ut ex occaecat\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Servicio no disponible.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\",\n                    \"reference2\": \"<string>\",\n                    \"reference3\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Error en la respuesta del proveedor del servicio.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\",\n                    \"reference2\": \"<string>\",\n                    \"reference3\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Bad Gateway",
+							"code": 502,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Actualizar la programación del debito automático para para el pago de una factura inscrita",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "X-IBM-Client-Secret",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+								"key": "X-Client-Certificate",
+								"value": "<string>"
+							},
+							{
+								"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+								"key": "message-id",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.bancolombia.v4+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bills",
+								"schedules",
+								"automatic-debit"
+							]
+						},
+						"description": "Esta Api permite actualizar la programación del débito automático de una factura inscrita. "
+					},
+					"response": [
+						{
+							"name": "No tiene permisos para acceder al recurso.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Error inesperado.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Servicio no disponible.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Respuesta exitosa.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-API-Version",
+									"value": "-16392116.43832703",
+									"description": "Versionamiento semantico de la API"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "-54669337",
+									"description": "Límite de solicitudes por hora"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"data\": {\n  \"bill\": {\n   \"schedule\": {\n    \"status\": \"cupidatat velit ut\",\n    \"updateDate\": \"1990-10-06\"\n   }\n  }\n },\n \"links\": {\n  \"self\": \"https://McBOpMLRxFtADhqycY.kgrOz.XTcB2bcnM-Pa\"\n }\n}"
+						},
+						{
+							"name": "Recurso no encontrado.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Error interno del servidor.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Tiempo de respuesta del proveedor del servicio excedido.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Gateway Timeout",
+							"code": 504,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "El estado del recurso presenta conflictos con los datos de la solicitud.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Error en la solicitud.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Error en la respuesta del proveedor del servicio.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Bad Gateway",
+							"code": 502,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Credenciales incorrectas.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"account\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        },\n                        \"creditCard\": {\n                            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                        }\n                    },\n                    \"schedule\": {\n                        \"paymentMethod\": \"<string>\",\n                        \"description\": \"<string>\",\n                        \"partialPayment\": \"<boolean>\",\n                        \"paymentFrequency\": \"<string>\",\n                        \"numberOfRetry\": \"<string>\",\n                        \"amountAutomaticDebit\": \"<number>\",\n                        \"endScheduledDate\": \"<date>\",\n                        \"numberOfDays\": \"<string>\",\n                        \"weekFrequency\": \"<string>\",\n                        \"dayFrequency\": \"<string>\",\n                        \"dayOfMonthFrequency\": \"<string>\"\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Consultar la programación del debito automático para para el pago de una factura inscrita",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "X-IBM-Client-Secret",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+								"key": "X-Client-Certificate",
+								"value": "<string>"
+							},
+							{
+								"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+								"key": "message-id",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.bancolombia.v4+json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bills",
+								"schedules",
+								"automatic-debit"
+							]
+						},
+						"description": "Esta Api permite consultar la programación del débito automático de una factura inscrita. "
+					},
+					"response": [
+						{
+							"name": "Credenciales incorrectas.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Error interno del servidor.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Error en la respuesta del proveedor del servicio.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Bad Gateway",
+							"code": 502,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Error inesperado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Tiempo de respuesta del proveedor del servicio excedido.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Gateway Timeout",
+							"code": 504,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Servicio no disponible.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Recurso no encontrado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Respuesta exitosa.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-API-Version",
+									"value": "-16392116.43832703",
+									"description": "Versionamiento semantico de la API"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "-54669337",
+									"description": "Límite de solicitudes por hora"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"data\": {\n  \"biller\": {\n   \"agreements\": [\n    {\n     \"code\": 9593467.308620125,\n     \"name\": \"qui pariatur nulla commodo\",\n     \"bills\": [\n      {\n       \"payer\": {\n        \"identification\": {\n         \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"account\": {\n         \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"creditCard\": {\n         \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n       },\n       \"reference\": \"pariatur culpa voluptate ut\",\n       \"schedule\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"payer\": {\n        \"identification\": {\n         \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"account\": {\n         \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"creditCard\": {\n         \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n       },\n       \"reference\": \"reprehenderit Excepteur culpa cillum\",\n       \"schedule\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ]\n    },\n    {\n     \"code\": -41348400.00150821,\n     \"name\": \"adipisicing laborum consectetur\",\n     \"bills\": [\n      {\n       \"payer\": {\n        \"identification\": {\n         \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"account\": {\n         \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"creditCard\": {\n         \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n       },\n       \"reference\": \"sunt sed\",\n       \"schedule\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"payer\": {\n        \"identification\": {\n         \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"account\": {\n         \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"creditCard\": {\n         \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n       },\n       \"reference\": \"ea nulla\",\n       \"schedule\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ]\n    }\n   ]\n  }\n },\n \"links\": {\n  \"self\": \"http://AAMdiNeqH.izpkHvYsjS+4Ttlu.W3MuYOfvFunOiuPtCufRkyNOHaS-26El+gc7t1swc\"\n }\n}"
+						},
+						{
+							"name": "El estado del recurso presenta conflictos con los datos de la solicitud.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Error en la solicitud.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "No tiene permisos para acceder al recurso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Certificado configurado en el portal, codificado en Base64 sin saltos de linea",
+										"key": "X-Client-Certificate",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Eliminar  la programación del debito automático para para el pago de una factura inscrita",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.set('randomNumber', \"Test\"+Math.floor(Math.random() * 9999));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "channel",
+								"value": "10",
+								"type": "text",
+								"description": "(Required) Canal en donde se está realizando el proceso de eliminación"
+							},
+							{
+								"key": "message-id",
+								"value": "{{randomNumber}}",
+								"type": "text",
+								"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo."
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.bancolombia.v4+json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-secret",
+								"value": "{{x-ibm-client-secret}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-debug",
+								"value": "true",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"64952\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"type\": \"TIPDOC_FS003\",\n                            \"number\": \"99999906\"\n                        }\n                    },\n                    \"reference\": \"1211333\"\n                }\n            }\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/int/{{environment}}/v1/operations/cross-product/payments/bill-payments/bills/schedules/automatic-debit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"int",
+								"{{environment}}",
+								"v1",
+								"operations",
+								"cross-product",
+								"payments",
+								"bill-payments",
+								"bills",
+								"schedules",
+								"automatic-debit"
+							]
+						},
+						"description": "Esta Api permite eliminar la programación del débito automático de una factura inscrita. "
+					},
+					"response": [
+						{
+							"name": "Error interno del servidor.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Canal en donde se está realizando el proceso de eliminación",
+										"key": "channel",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"type\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            },\n                            \"number\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            }\n                        }\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "El estado del recurso presenta conflictos con los datos de la solicitud.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Canal en donde se está realizando el proceso de eliminación",
+										"key": "channel",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"type\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            },\n                            \"number\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            }\n                        }\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Credenciales incorrectas.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Canal en donde se está realizando el proceso de eliminación",
+										"key": "channel",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"type\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            },\n                            \"number\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            }\n                        }\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Error en la solicitud.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Canal en donde se está realizando el proceso de eliminación",
+										"key": "channel",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"type\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            },\n                            \"number\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            }\n                        }\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Servicio no disponible.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Canal en donde se está realizando el proceso de eliminación",
+										"key": "channel",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"type\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            },\n                            \"number\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            }\n                        }\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Error en la respuesta del proveedor del servicio.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Canal en donde se está realizando el proceso de eliminación",
+										"key": "channel",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"type\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            },\n                            \"number\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            }\n                        }\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Bad Gateway",
+							"code": 502,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "No tiene permisos para acceder al recurso.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Canal en donde se está realizando el proceso de eliminación",
+										"key": "channel",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"type\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            },\n                            \"number\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            }\n                        }\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Error inesperado.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Canal en donde se está realizando el proceso de eliminación",
+										"key": "channel",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"type\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            },\n                            \"number\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            }\n                        }\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Tiempo de respuesta del proveedor del servicio excedido.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Canal en donde se está realizando el proceso de eliminación",
+										"key": "channel",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"type\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            },\n                            \"number\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            }\n                        }\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Gateway Timeout",
+							"code": 504,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Recurso no encontrado.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Canal en donde se está realizando el proceso de eliminación",
+										"key": "channel",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"type\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            },\n                            \"number\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            }\n                        }\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"errors\": [\n  {\n   \"code\": \"BP404\",\n   \"detail\": \"Requested resource could not be found\"\n  }\n ],\n \"status\": \"reprehender\",\n \"title\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Respuesta exitosa.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": {
+											"content": "Added as a part of security scheme: apikey",
+											"type": "text/plain"
+										},
+										"key": "X-IBM-Client-Secret",
+										"value": "<API Key>"
+									},
+									{
+										"description": "(Required) Canal en donde se está realizando el proceso de eliminación",
+										"key": "channel",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) Identificador de transacción. Se recomienda usar un UUID para el valor de este campo.",
+										"key": "message-id",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"biller\": {\n            \"agreement\": {\n                \"code\": \"<number>\",\n                \"bill\": {\n                    \"payer\": {\n                        \"identification\": {\n                            \"type\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            },\n                            \"number\": {\n                                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                            }\n                        }\n                    },\n                    \"reference\": \"<string>\"\n                }\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bills/schedules/automatic-debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bills",
+										"schedules",
+										"automatic-debit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-API-Version",
+									"value": "-16392116.43832703",
+									"description": "Versionamiento semantico de la API"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "-54669337",
+									"description": "Límite de solicitudes por hora"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.bancolombia.v4+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"meta\": {\n  \"_messageId\": \"c4e6bd04-5149-11e7-b114-b2f933d5fe66\",\n  \"_requestDateTime\": \"2017-01-24T05:00:00.000Z\",\n  \"_applicationId\": \"acxff62e-6f12-42de-9012-3e7304418abd\"\n },\n \"data\": {\n  \"bill\": {\n   \"schedule\": {\n    \"status\": \"ad\",\n    \"deleteDate\": \"1980-02-25\"\n   }\n  }\n },\n \"links\": {\n  \"self\": \"http://ZySeMHYDT.vgnzADjw2MC7NClNkJZtxIsACUzK76yuHDWP9s8VvOByEa6Pcg,501M\"\n }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "/bill-payment-schedules/health",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "X-IBM-Client-Id",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "HEAD",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/bill-payment-schedules/health",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"bill-payment-schedules",
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "HEAD",
+						"header": [
+							{
+								"description": {
+									"content": "Added as a part of security scheme: apikey",
+									"type": "text/plain"
+								},
+								"key": "X-IBM-Client-Id",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/bill-payment-schedules/health",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bill-payment-schedules",
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://$(catalog.host)/v1/operations/cross-product/payments/bill-payments",
+			"type": "string"
+		}
+	]
+}

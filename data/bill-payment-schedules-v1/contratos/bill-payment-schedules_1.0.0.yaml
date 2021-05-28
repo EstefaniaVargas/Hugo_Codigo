@@ -1,0 +1,990 @@
+---
+swagger: "2.0"
+info:
+  title: "Bill Payment - Schedules"
+  description: "Esta Api habilita permitirá realizar gestión sobre la programació\
+    n de pago de las facturas previamente inscritas."
+  contact:
+    name: "Bancolombia API Working Group"
+    email: "apigroup@bancolombia.com.co"
+    url: "https://developer.grupobancolombia.com.co/contact"
+  termsOfService: ""
+  version: "1.0.0"
+  x-ibm-name: "bill-payment-schedules"
+host: "$(catalog.host)"
+basePath: "/v1/operations/cross-product/payments/bill-payments"
+paths:
+  /bills/schedules/automatic-debit:
+    delete:
+      summary: "Eliminar  la programación del debito automático para para el pago\
+        \ de una factura inscrita"
+      description: "Esta Api permite eliminar la programación del débito automático\
+        \ de una factura inscrita. "
+      parameters:
+      - name: "channel"
+        required: true
+        description: "Canal en donde se está realizando el proceso de eliminación"
+        in: "header"
+        type: "string"
+      - name: "message-id"
+        maxLength: 128
+        required: true
+        description: "Identificador de transacción. Se recomienda usar un UUID para\
+          \ el valor de este campo."
+        in: "header"
+        type: "string"
+      - name: "request"
+        required: true
+        in: "body"
+        schema:
+          $ref: "#/definitions/RequestDeleteScheduleAutomaticDebit"
+      responses:
+        200:
+          schema:
+            $ref: "#/definitions/ResponseDeleteScheduleAutomaticDebit"
+          description: "Respuesta exitosa."
+          x-ibm-languages:
+            description:
+              en: "Successful response."
+          headers:
+            X-API-Version:
+              type: "number"
+              format: "float"
+              description: "Versionamiento semantico de la API"
+              x-ibm-languages:
+                description:
+                  en: "Semantic versioning of the API"
+            X-RateLimit-Limit:
+              type: "integer"
+              description: "Límite de solicitudes por hora"
+              x-ibm-languages:
+                description:
+                  en: "Resquest limit per hour."
+        400:
+          schema:
+            $ref: "#/definitions/failure"
+          description: "Error en la solicitud."
+          x-ibm-languages:
+            description:
+              en: "Error in the request."
+        401:
+          schema:
+            $ref: "#/definitions/failure"
+          description: "Credenciales incorrectas."
+          x-ibm-languages:
+            description:
+              en: "Incorrect credentials."
+        403:
+          schema:
+            $ref: "#/definitions/failure"
+          description: "No tiene permisos para acceder al recurso."
+          x-ibm-languages:
+            description:
+              en: "You do not have permissions to access the resource."
+        404:
+          schema:
+            $ref: "#/definitions/failure"
+          description: "Recurso no encontrado."
+          x-ibm-languages:
+            description:
+              en: "Resource not found."
+        409:
+          schema:
+            $ref: "#/definitions/failure"
+          description: "El estado del recurso presenta conflictos con los datos de\
+            \ la solicitud."
+          x-ibm-languages:
+            description:
+              en: "Resource state has conflicts with data of the request."
+        500:
+          schema:
+            $ref: "#/definitions/failure"
+          description: "Error interno del servidor."
+          x-ibm-languages:
+            description:
+              en: "Internal server error."
+        502:
+          schema:
+            $ref: "#/definitions/failure"
+          description: "Error en la respuesta del proveedor del servicio."
+          x-ibm-languages:
+            description:
+              en: "Error in the service provider response."
+        503:
+          schema:
+            $ref: "#/definitions/failure"
+          description: "Servicio no disponible."
+          x-ibm-languages:
+            description:
+              en: "Service unavailable."
+        504:
+          schema:
+            $ref: "#/definitions/failure"
+          description: "Tiempo de respuesta del proveedor del servicio excedido."
+          x-ibm-languages:
+            description:
+              en: "Service provider response time exceeded."
+        default:
+          description: "Error inesperado."
+          x-ibm-languages:
+            description:
+              en: "Unexpected Error."
+      tags:
+      - "Delete Schedule Automatic Debit"
+      security:
+      - ClientId: []
+        ClientSecret: []
+  /bill-payment-schedules/health:
+    head:
+      responses:
+        200:
+          description: "200 OK"
+      security:
+      - ClientId: []
+        ClientSecret: []
+definitions:
+  RequestScheduleAutomaticDebit:
+    type: "object"
+    required:
+    - "data"
+    properties:
+      data:
+        type: "object"
+        required:
+        - "biller"
+        properties:
+          biller:
+            type: "object"
+            description: "Información del recaudador"
+            required:
+            - "agreement"
+            properties:
+              agreement:
+                type: "object"
+                required:
+                - "code"
+                - "bill"
+                description: "información del convenio"
+                properties:
+                  code:
+                    type: "number"
+                    description: "Número de convenio."
+                  bill:
+                    type: "object"
+                    required:
+                    - "payer"
+                    - "schedule"
+                    description: "información de la factura, este campo permite filtrar\
+                      \ la consultar por una factura especifica."
+                    properties:
+                      payer:
+                        $ref: "#/definitions/payer"
+                      reference:
+                        type: "string"
+                        description: "Codigo de referencia1"
+                      reference2:
+                        type: "string"
+                        description: "Codigo de referencia1"
+                      reference3:
+                        type: "string"
+                        description: "Codigo de referencia1"
+                      schedule:
+                        $ref: "#/definitions/schedule"
+    additionalProperties: false
+  ResponseScheduleAutomaticDebit:
+    type: "object"
+    required:
+    - "meta"
+    - "data"
+    properties:
+      meta:
+        $ref: "#/definitions/meta"
+      data:
+        type: "object"
+        required:
+        - "bill"
+        properties:
+          bill:
+            type: "object"
+            description: "Información de la factura"
+            required:
+            - "schedule"
+            properties:
+              schedule:
+                type: "object"
+                description: "información de la programación"
+                required:
+                - "status"
+                - "createDate"
+                properties:
+                  status:
+                    type: "string"
+                    description: "Estado de la programación"
+                  createDate:
+                    type: "string"
+                    description: "Fecha en que se realizó la creación de la programació\
+                      n"
+                    format: "date"
+                    example: "2020-09-08T02:42:13"
+      links:
+        $ref: "#/definitions/topLevelLinks"
+    additionalProperties: false
+  RequestUpdateScheduleAutomaticDebit:
+    type: "object"
+    required:
+    - "data"
+    properties:
+      data:
+        type: "object"
+        required:
+        - "biller"
+        properties:
+          biller:
+            type: "object"
+            description: "Información del recaudador"
+            required:
+            - "agreement"
+            properties:
+              agreement:
+                type: "object"
+                required:
+                - "code"
+                - "bill"
+                description: "información del convenio"
+                properties:
+                  code:
+                    type: "number"
+                    description: "Número de convenio."
+                  bill:
+                    type: "object"
+                    required:
+                    - "payer"
+                    - "schedule"
+                    description: "información de la factura, este campo permite filtrar\
+                      \ la consultar por una factura especifica."
+                    properties:
+                      payer:
+                        $ref: "#/definitions/payer"
+                      reference:
+                        type: "string"
+                        description: "Codigo de referencia1"
+                      schedule:
+                        $ref: "#/definitions/schedule"
+    additionalProperties: false
+  ResponseUpdateScheduleAutomaticDebit:
+    type: "object"
+    required:
+    - "meta"
+    - "data"
+    properties:
+      meta:
+        $ref: "#/definitions/meta"
+      data:
+        type: "object"
+        required:
+        - "bill"
+        properties:
+          bill:
+            type: "object"
+            description: "Información de la factura"
+            required:
+            - "schedule"
+            properties:
+              schedule:
+                type: "object"
+                description: "información de la programación"
+                required:
+                - "status"
+                - "updateDate"
+                properties:
+                  status:
+                    type: "string"
+                    description: "Estado de la programación"
+                  updateDate:
+                    type: "string"
+                    description: "Fecha en que se realizó la actualización de la programació\
+                      n"
+                    format: "date"
+                    example: "2020-09-08T02:42:13"
+      links:
+        $ref: "#/definitions/topLevelLinks"
+    additionalProperties: false
+  RequestRetrieveScheduleAutomaticDebit:
+    type: "object"
+    required:
+    - "data"
+    properties:
+      data:
+        type: "object"
+        required:
+        - "biller"
+        properties:
+          biller:
+            type: "object"
+            description: "Información del recaudador"
+            required:
+            - "agreement"
+            properties:
+              agreement:
+                type: "object"
+                required:
+                - "bill"
+                description: "información del convenio"
+                properties:
+                  code:
+                    type: "number"
+                    description: "Número de convenio."
+                  bill:
+                    type: "object"
+                    required:
+                    - "payer"
+                    description: "información de la factura, este campo permite filtrar\
+                      \ la consultar por una factura especifica."
+                    properties:
+                      payer:
+                        type: "object"
+                        required:
+                        - "identification"
+                        properties:
+                          identification:
+                            $ref: "#/definitions/identification"
+                      reference:
+                        type: "string"
+                        description: "Codigo de referencia"
+                      amount:
+                        type: "number"
+                        description: "Monto de la factura"
+                      schedule:
+                        type: "object"
+                        description: "información de la programación"
+                        required:
+                        - "channel"
+                        properties:
+                          channel:
+                            type: "string"
+                            description: "nombre del canal por donde se realizó la\
+                              \ programación del pago de la factura, este campo funciona\
+                              \ como filtro en caso de no ser enviado se retornan\
+                              \ todos los recaudos realizados en cualquier canal disponible."
+                            enum:
+                            - "DEBITO AUTOMATICO"
+                            - "CAJA"
+                            - "SUCURSAL VIRTUAL"
+                            - "SUCURSAL TELEFONICA"
+    additionalProperties: false
+  ResponseRetrieveScheduleAutomaticDebit:
+    type: "object"
+    required:
+    - "meta"
+    - "data"
+    properties:
+      meta:
+        $ref: "#/definitions/meta"
+      data:
+        type: "object"
+        required:
+        - "biller"
+        properties:
+          biller:
+            type: "object"
+            description: "Información del recaudador"
+            required:
+            - "agreements"
+            properties:
+              agreements:
+                type: "array"
+                items:
+                  $ref: "#/definitions/agreements"
+      links:
+        $ref: "#/definitions/topLevelLinks"
+    additionalProperties: false
+  RequestDeleteScheduleAutomaticDebit:
+    type: "object"
+    required:
+    - "data"
+    properties:
+      data:
+        type: "object"
+        required:
+        - "biller"
+        properties:
+          biller:
+            type: "object"
+            description: "Información del recaudador"
+            required:
+            - "agreement"
+            properties:
+              agreement:
+                type: "object"
+                required:
+                - "code"
+                - "bill"
+                description: "información del convenio"
+                properties:
+                  code:
+                    type: "number"
+                    description: "Número de convenio."
+                  bill:
+                    type: "object"
+                    required:
+                    - "payer"
+                    - "reference"
+                    description: "información de la factura, este campo permite filtrar\
+                      \ la consultar por una factura especifica."
+                    properties:
+                      payer:
+                        type: "object"
+                        required:
+                        - "identification"
+                        properties:
+                          identification:
+                            $ref: "#/definitions/identification"
+                      reference:
+                        type: "string"
+                        description: "Codigo de referencia"
+    additionalProperties: false
+  ResponseDeleteScheduleAutomaticDebit:
+    type: "object"
+    required:
+    - "meta"
+    - "data"
+    properties:
+      meta:
+        $ref: "#/definitions/meta"
+      data:
+        type: "object"
+        required:
+        - "bill"
+        properties:
+          bill:
+            type: "object"
+            description: "Información de la factura"
+            required:
+            - "schedule"
+            properties:
+              schedule:
+                type: "object"
+                description: "información de la programación"
+                required:
+                - "status"
+                - "deleteDate"
+                properties:
+                  status:
+                    type: "string"
+                    description: "Estado de la programación"
+                  deleteDate:
+                    type: "string"
+                    description: "Fecha en que se realizó la eliminación de la programació\
+                      n"
+                    format: "date"
+                    example: "2020-09-08T02:42:13"
+                  description:
+                    type: "string"
+                    description: "Descripción de la respuesta"
+      links:
+        $ref: "#/definitions/topLevelLinks"
+    additionalProperties: false
+  agreements:
+    type: "object"
+    required:
+    - "code"
+    - "name"
+    - "bills"
+    description: "información del convenio"
+    properties:
+      code:
+        type: "number"
+        description: "Número de convenio."
+      name:
+        type: "string"
+        description: "Nombre del convenio."
+      bills:
+        type: "array"
+        items:
+          $ref: "#/definitions/bills"
+  bills:
+    type: "object"
+    required:
+    - "payer"
+    - "reference"
+    - "schedule"
+    description: "información de la factura, este campo permite filtrar la consultar\
+      \ por una factura especifica."
+    properties:
+      payer:
+        $ref: "#/definitions/payer"
+      reference:
+        type: "string"
+        description: "Referencia"
+      schedule:
+        $ref: "#/definitions/scheduleDetail"
+  schedule:
+    type: "object"
+    description: "información de la programación"
+    required:
+    - "paymentMethod"
+    - "description"
+    - "partialPayment"
+    - "paymentFrequency"
+    - "numberOfRetry"
+    properties:
+      paymentMethod:
+        type: "string"
+        description: "Metodo de pago seleccionado por el cliente, esté campo es determina\
+          \ si la información de la cuenta o la tarjeta de credito es obligatorio"
+        enum:
+        - "DEBITO_A_CUENTA"
+        - "TARJETA_DEBITO"
+      description:
+        type: "string"
+        description: "Descripción de la programación que se está creando"
+      amountAutomaticDebit:
+        type: "number"
+        description: "Valor del débito automático que se aplicará"
+      partialPayment:
+        type: "boolean"
+        description: "Indica si permite un pago parcial de la factura"
+      endScheduledDate:
+        type: "string"
+        description: "Fecha hasta la que se programó el pago por debito automatico,\
+          \ la fecha inicial se considera la fecha en que se creó la programación"
+        format: "date"
+        example: "2020-09-08T02:42:13"
+      paymentFrequency:
+        type: "string"
+        description: "Frecuencia en que se realizará el débito automático"
+        enum:
+        - "DIARIO"
+        - "MENSUAL"
+        - "2 VECES AL MES"
+        - "SEMANAL"
+        - "QUINCENAL"
+        - "TRIMESTRAL"
+        - "SEMESTRAL"
+        - "ANUAL"
+        - "CADA N DÍAS"
+        - "EN VENCIMIENTO"
+        - "N DÍAS ANTES DEL VENCIMIENTO"
+      numberOfDays:
+        type: "string"
+        description: "Cuando la frecuencia es 'CADA N DÍAS' se envia este campo para\
+          \ indicar: cada cuantos días se aplicará el débito automático."
+      weekFrequency:
+        type: "string"
+        description: "Cuando la frecuencia del pago es 'SEMANAL', se envia este campo\
+          \ para indicar: cual será la semana del mes en la que se aplicará el dé\
+          bito automático."
+        enum:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+      dayFrequency:
+        type: "string"
+        description: "Cuando la frecuencia del pago es 'SEMANAL', se envia este campo\
+          \ para indicar: cual será el día de la semana en la que se aplicará el dé\
+          bito automático."
+        enum:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+      dayOfMonthFrequency:
+        type: "string"
+        description: "Cuando la frecuencia del pago es 'MES', se envia este campo\
+          \ para indicar: cual será el día de la semana en la que se aplicará el dé\
+          bito automático."
+        enum:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+        - "6"
+        - "7"
+        - "8"
+        - "9"
+        - "10"
+        - "11"
+        - "12"
+        - "13"
+        - "14"
+        - "15"
+        - "16"
+        - "17"
+        - "18"
+        - "19"
+        - "20"
+        - "21"
+        - "22"
+        - "23"
+        - "24"
+        - "25"
+        - "26"
+        - "27"
+        - "28"
+        - "29"
+        - "30"
+        - "31"
+      numberOfRetry:
+        type: "string"
+        description: "Cantidad de días que se reintentará hacer el débito automático."
+        enum:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+  scheduleDetail:
+    type: "object"
+    description: "información de la programación"
+    required:
+    - "createDate"
+    - "endScheduledDate"
+    - "paymentMethod"
+    - "description"
+    - "partialPayment"
+    - "paymentFrequency"
+    - "numberOfRetry"
+    - "firstPaymentDate"
+    - "status"
+    properties:
+      paymentMethod:
+        type: "string"
+        description: "Metodo de pago seleccionado por el cliente, esté campo es determina\
+          \ si la información de la cuenta o la tarjeta de credito es obligatorio"
+        enum:
+        - "DEBITO_A_CUENTA"
+        - "TARJETA_DEBITO"
+      description:
+        type: "string"
+        description: "Descripción de la programación que se está creando"
+      amountAutomaticDebit:
+        type: "number"
+        description: "Valor del débito automático que se aplicará"
+      partialPayment:
+        type: "boolean"
+        description: "Indica si permite un pago parcial de la factura"
+      endScheduledDate:
+        type: "string"
+        description: "Fecha hasta la que se programó el pago por debito automatico,\
+          \ la fecha inicial se considera la fecha en que se creó la programación"
+        format: "date"
+        example: "2020-09-08T02:42:13"
+      paymentFrequency:
+        type: "string"
+        description: "Frecuencia en que se realizará el débito automático"
+        enum:
+        - "DIARIO"
+        - "MENSUAL"
+        - "2 VECES AL MES"
+        - "SEMANAL"
+        - "QUINCENAL"
+        - "TRIMESTRAL"
+        - "SEMESTRAL"
+        - "ANUAL"
+        - "CADA N DÍAS"
+        - "EN VENCIMIENTO"
+        - "N DÍAS ANTES DEL VENCIMIENTO"
+      numberOfDays:
+        type: "string"
+        description: "Cuando la frecuencia es 'CADA N DÍAS' se envia este campo para\
+          \ indicar: cada cuantos días se aplicará el débito automático."
+      weekFrequency:
+        type: "string"
+        description: "Cuando la frecuencia del pago es 'SEMANAL', se envia este campo\
+          \ para indicar: cual será la semana del mes en la que se aplicará el dé\
+          bito automático."
+        enum:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+      dayFrequency:
+        type: "string"
+        description: "Cuando la frecuencia del pago es 'SEMANAL', se envia este campo\
+          \ para indicar: cual será el día de la semana en la que se aplicará el dé\
+          bito automático."
+        enum:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+      dayOfMonthFrequency:
+        type: "string"
+        description: "Cuando la frecuencia del pago es 'MES', se envia este campo\
+          \ para indicar: cual será el día de la semana en la que se aplicará el dé\
+          bito automático."
+        enum:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+        - "6"
+        - "7"
+        - "8"
+        - "9"
+        - "10"
+        - "11"
+        - "12"
+        - "13"
+        - "14"
+        - "15"
+        - "16"
+        - "17"
+        - "18"
+        - "19"
+        - "20"
+        - "21"
+        - "22"
+        - "23"
+        - "24"
+        - "25"
+        - "26"
+        - "27"
+        - "28"
+        - "29"
+        - "30"
+        - "31"
+      numberOfRetry:
+        type: "string"
+        description: "Cantidad de días que se reintentará hacer el débito automático."
+        enum:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+      firstPaymentDate:
+        type: "string"
+        format: "date"
+        example: "2020-09-08T02:42:13"
+        description: "fecha del primer pago, donde se inicia la programación del pago"
+      nextPaymentDate:
+        type: "string"
+        format: "date"
+        example: "2020-09-08T02:42:13"
+        description: "fecha del proximo pago"
+      status:
+        type: "string"
+        description: "estado de la programación"
+      channel:
+        type: "string"
+        description: "nombre del canal por donde se realizó la programación del pago\
+          \ de la factura, este campo funciona como filtro en caso de no ser enviado\
+          \ se retornan todos los recaudos realizados en cualquier canal disponible."
+        enum:
+        - "DEBITO AUTOMATICO"
+        - "CAJA"
+        - "SUCURSAL VIRTUAL"
+        - "SUCURSAL TELEFONICA"
+  payer:
+    type: "object"
+    required:
+    - "identification"
+    properties:
+      identification:
+        $ref: "#/definitions/identification"
+      account:
+        $ref: "#/definitions/account"
+      creditCard:
+        $ref: "#/definitions/creditCard"
+  creditCard:
+    type: "object"
+    required:
+    - "number"
+    allOf:
+    - $ref: "#/definitions/accountNumber"
+  account:
+    type: "object"
+    required:
+    - "type"
+    - "number"
+    - "bankCode"
+    - "bankName"
+    allOf:
+    - $ref: "#/definitions/accountType"
+    - $ref: "#/definitions/accountNumber"
+    properties:
+      bankCode:
+        type: "string"
+        description: "Codigo de la entidad bancaria dueño de la cuenta del pagador"
+      bankName:
+        type: "string"
+        description: "Nombre de la Entidad bancaria dueño de la cuenta del pagador"
+  accountType:
+    type: "object"
+    properties:
+      type:
+        type: "string"
+        description: "Tipo de cuenta."
+        example: "CUENTA_CORRIENTE"
+        enum:
+        - "CUENTA_DE_AHORRO"
+        - "CUENTA_CORRIENTE"
+        - "CREDIPAGOS"
+  accountNumber:
+    type: "object"
+    properties:
+      number:
+        type: "string"
+        description: "Número de la cuenta."
+        example: "55131428291"
+        maxLength: 16
+        minLength: 1
+  identification:
+    type: "object"
+    required:
+    - "type"
+    - "number"
+    allOf:
+    - $ref: "#/definitions/documentType"
+    - $ref: "#/definitions/documentNumber"
+  documentType:
+    type: "object"
+    properties:
+      type:
+        type: "string"
+        description: "Tipo de identificación del titular de la cuenta."
+        example: "TIPDOC_FS001"
+        enum:
+        - "TIPDOC_FS000"
+        - "TIPDOC_FS001"
+        - "TIPDOC_FS002"
+        - "TIPDOC_FS003"
+        - "TIPDOC_FS004"
+        - "TIPDOC_FS005"
+        - "TIPDOC_FS006"
+        - "TIPDOC_FS007"
+        - "TIPDOC_FS008"
+        - "TIPDOC_FS009"
+        - "TIPDOC_FS010"
+  documentNumber:
+    type: "object"
+    properties:
+      number:
+        type: "string"
+        description: "Número de identificación del titular de la cuenta."
+        example: "890511670"
+        maxLength: 60
+        minLength: 1
+  meta:
+    description: "Meta-información no estandar que no se puede representar con datos."
+    type: "object"
+    required:
+    - "_messageId"
+    - "_requestDateTime"
+    - "_applicationId"
+    properties:
+      _messageId:
+        type: "string"
+        example: "c4e6bd04-5149-11e7-b114-b2f933d5fe66"
+      _requestDateTime:
+        type: "string"
+        format: "date-time"
+        example: "2017-01-24T05:00:00.000Z"
+      _applicationId:
+        type: "string"
+        example: "acxff62e-6f12-42de-9012-3e7304418abd"
+  headerData:
+    description: "El \"tipo\" y \"id\" para cada registro."
+    type: "object"
+    required:
+    - "type"
+    - "id"
+    properties:
+      type:
+        type: "string"
+        example: "Bill-Payment-Management"
+      id:
+        type: "string"
+        example: "Bill-Payment-Management-2020-01-24T05:00:00.000Z"
+    additionalProperties: false
+  topLevelLinks:
+    description: "URLs relacionadas con los datos primarios."
+    type: "object"
+    allOf:
+    - $ref: "#/definitions/links"
+  links:
+    description: "Un objeto de recurso PUEDE contener referencias a otros objetos\
+      \ de recurso"
+    type: "object"
+    properties:
+      self:
+        description: "Un mismo miembro, cuyo valor es una URL para los datos de relació\
+          n"
+        type: "string"
+        format: "uri"
+    additionalProperties: false
+  failure:
+    type: "object"
+    required:
+    - "meta"
+    - "errors"
+    - "status"
+    - "title"
+    properties:
+      meta:
+        $ref: "#/definitions/meta"
+      status:
+        description: "El cÃ³digo de estado HTTP aplicable a este problema, expresado\
+          \ como un valor de cadena."
+        type: "string"
+        example: 404
+      title:
+        description: "Un breve resumen, legible por el hombre, del problema. ** NO\
+          \ DEBE ** cambiar de ocurrencia a ocurrencia del problema, excepto para\
+          \ propósitos de localización."
+        type: "string"
+        example: "Not Found"
+      errors:
+        type: "array"
+        uniqueItems: true
+        items:
+          $ref: "#/definitions/error"
+    additionalProperties: false
+  error:
+    type: "object"
+    required:
+    - "code"
+    - "detail"
+    properties:
+      code:
+        description: "Un código de error específico de la aplicación, expresado como\
+          \ un valor de cadena."
+        type: "string"
+        example: "BP404"
+      detail:
+        description: "Una explicación legible por humanos específica para esta ocurrencia\
+          \ del problema."
+        type: "string"
+        example: "Requested resource could not be found"
+    additionalProperties: false
+schemes:
+- "https"
+securityDefinitions:
+  ClientSecret:
+    type: "apiKey"
+    description: ""
+    in: "header"
+    name: "X-IBM-Client-Secret"
+  ClientId:
+    type: "apiKey"
+    in: "header"
+    name: "X-IBM-Client-Id"
+    description: "Identificación de la aplicación consumidora usando el client_id"
+x-API-Authors:
+  Design:
+    name: "Robert Carmona"
+    email: "roacarmo@bancolombia.com.co"
+  Development:
+    name: ""
+    email: ""
+  Review:
+    name: ""
+    email: ""
+consumes:
+- "application/vnd.bancolombia.v4+json"
+produces:
+- "application/vnd.bancolombia.v4+json"

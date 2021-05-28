@@ -1,0 +1,102 @@
+/* Configuración de todo el HTML */
+html{
+  position: relative;
+}
+
+/* LAYOUT */
+/**Layout encabezado*/
+.head__content{
+    display:flex;
+    justify-content:baseline;
+    background-color:rgb(40, 40, 40);
+}
+
+.imagen-head{
+    padding: 1.6rem 0rem 1.4rem 4rem;
+    order:0;
+}
+
+.titulo-principal{
+
+    color: rgb(255, 254, 254);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 0rem;
+    order:1;
+}
+
+/**Layout body*/
+body {
+    background-color: white;
+    line-height: 1.5; /*Interlineado*/
+    margin: 0 auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.body__content{
+    display:flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-secundario{
+
+    /*color:rgb(44, 44, 44);*/
+    text-decoration: none; /*Link no subrayado*/
+    border-right-color: rgb(50, 50, 50);
+    border-right-width: 0.1rem;
+    border-right-style: solid;
+    background-color: white;
+    margin: 0;  
+    order: 0;
+    min-width: 20%;
+    max-width: 25%;
+    
+}
+
+.contenido-principal{
+    background-color: inherit;
+    color:rgb(44, 44, 44);
+    text-align: justify;
+    order: 1;
+}
+
+.content{
+    padding: 2rem;
+    text-align: justify;
+}
+/**Layout footer*/
+footer {
+
+    margin-top: 1rem;
+    padding: 0;
+    bottom: 0;
+    position: relative;  
+}
+
+.footer__content {
+
+    background-color: rgb(44, 44, 44);
+    display:flex;
+    margin: 0;
+    padding: 0;
+    color:white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+
+.footer_izquierda {
+
+    margin: 0rem;
+    padding: 0.5rem 0 0.5rem 3rem;
+    order:0;
+
+}
+
+.footer_derecha {
+
+    margin: 0rem;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    font-size: 80%;
+    width: 70%;
+    order:1;
+}

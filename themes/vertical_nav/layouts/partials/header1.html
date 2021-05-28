@@ -12,15 +12,26 @@
             <li class="menu-vert">
                 <a href="{{ .Permalink }}">{{ .Name }}</a>
 
-                <ul>
+                <ul class="submenu-vert-level">
                     {{ range .CurrentSection.Sections -}}
                     <li class="submenu-vert">
                         <a href="{{ .Permalink }}">{{ .Title }}</a>
 
-                        <ul>
+                        <ul class="submenu-vert-level">
                             {{ range .CurrentSection.Pages -}}
-                            <li class="submenu-vert-level2">
+                            <li>
                                 <a href="{{ .Permalink }}">{{ .Title }}</a>
+
+                                <ul class="submenu-vert-level">
+                                    {{ range .CurrentSection.Pages -}}
+                                    <li>
+                                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    
+                                    </li>
+                                    {{ end }}
+
+                                </ul>
+
                             </li>
                             {{ end }}
                         </ul>

@@ -6,12 +6,11 @@ type: without-menu
 layout: list
 ---
 
-Antes de empezar se debe tener en 
-cuenta que hay que tener la versión "extendida" Sass/SCSS de Hugo con el siguiente comando:
+En primer lugar se debe instalar Hugo, donde se debe tener en cuenta que hay que tener la versión "extendida" Sass/SCSS de Hugo con el siguiente comando:
 
-`
-choco install hugo-extended -confirm
-`
+        choco install hugo-extended -confirm
+
+
 Si no tiene Windows, puede revisar la página oficial de Hugo para las respectivas instalaciones:
 **[(Instalar Hugo)](https://gohugo.io/getting-started/installing/)**
 
@@ -23,7 +22,7 @@ Estos permiten crear un sitio web con un aspecto atractivo y de manera más senc
 
 **[Ingresar temas Hugo!!!](https://themes.gohugo.io/)**
 
-El presente repositorio cuenta con un tema, el cuál es una plantilla base para Bancolombia que puede usar en su archivo raiz. Esta plantilla se encuentra dentro de la carpeta llamada `Tema_PlantillaBase` o tambíen puede usar la carpeta `themes/Theme_Bancolombia`
+El presente repositorio cuenta con un tema, el cuál es una plantilla base para Bancolombia que puede usar en su archivo raiz. Esta plantilla se encuentra dentro de la carpeta llamada `vertical_nav` o tambíen puede usar la carpeta `themes/Theme_Bancolombia`
 
 Para agregar un tema hay dos métodos:
 
@@ -40,7 +39,7 @@ Con Git se puede agregar el tema más rápido y consiguiendo un flujo de trabajo
     Estando en la carpeta raíz del proyecto, se ejecuta lo siguiente:
 
     `
-    git submodule add https://github.ibm.com/Julieth-Acosta/Pruebas_Templates.git themes/<nombre nuevo tema> 
+    git submodule add <ssh/https url github> themes/<nombre nuevo tema> 
     `
 
     Este método no se recomienda ya que copia la subcarpeta al repositorio vacía, copiando solo al archivo localmente.
@@ -50,7 +49,7 @@ Con Git se puede agregar el tema más rápido y consiguiendo un flujo de trabajo
     Estando en la carpeta raíz del proyecto, se ejecuta lo siguiente:
 
     `
-    git clone --depth 1  https://github.ibm.com/Julieth-Acosta/Pruebas_Templates.git themes/<nombre nuevo tema>
+    git clone --depth 1  <ssh/https url github> themes/<nombre nuevo tema>
     `
 
     Luego borrar el directorio .git

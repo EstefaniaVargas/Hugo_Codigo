@@ -1,0 +1,58 @@
+<!-- Shortcode para el diagrama en mermaid de los dominios-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+    
+<div class="mermaid">
+    graph TD
+        Domi([DOMINIOS]):::titulo --> A(Productos de <br> Captación):::Dominio
+        Domi --> B(Medios <br> de pago):::Dominio
+        Domi --> C(Clientes):::Dominio
+        Domi --> D(Productos de <br> financiación):::Dominio
+        Domi --> E(Canales):::Dominio
+        Domi --> F(Riesgos):::Dominio
+        Domi --> G(Seguridad):::Dominio
+        Domi --> H(Negocios de <br> Inversión):::Dominio
+        Domi --> I(Información):::Dominio
+        Domi --> J(Administrativo <br> y Financiero):::Dominio
+        Domi --> K(Filiales del <br> Exterior):::Dominio
+        Domi --> L(Aliados):::Dominio
+        A --> Aa(Depositos):::sub
+        Aa --> Ab(Captaciones):::sub
+        Ab --> Ac(Pagos):::sub
+        Ac --> Ad(Recaudos):::sub
+        Ad --> Ae(Impuestos):::sub
+        Ae --> Af(Comercio <br> Exterior):::sub
+        B --> Ba(Crédito, Débito, <br> Adquirencia):::sub
+        Ba --> Bb(Pasarela y Motor <br> de Pagos):::sub
+        Bb --> Bc(Billetera):::sub
+        C --> Ca(Conociento <br> del Cliente):::sub
+        Ca --> Cb(Asesorar y <br> Negociar):::sub
+        Cb --> Cc(Oportunidades <br> Comerciales):::sub
+        Cc --> Cd(Pricing):::sub
+        D --> Da(Administración <br> de Crédito):::sub
+        Da --> Db(Límites y <br> desembolsos):::sub
+        E --> Ea(Digitales):::sub
+        Ea --> Eb(Tradicionales):::sub
+        Eb --> Ec(Pymes):::sub
+        F --> Fa(Riegos):::sub
+        G --> Ga(Seguridad):::sub
+        H --> Ha(Tesorería):::sub
+        Ha --> Hb(Valores):::sub
+        Hb --> Hc(Negocios <br> Fiduciarios y <br> Fondos):::sub
+        I --> Ia(Sistema de <br> Información <br> Digital):::sub
+        Ia -->Ib(MDM):::sub
+        J --> Ja(Gestión Humana <br> y Nómina):::sub
+        Ja --> Jb(Gestión Contable <br> y Financiera):::sub
+        Jb --> Jc(Administración y <br> Reportería Legal):::sub
+        Jc --> Jd(Trasnversales SAP):::sub
+        K --> Ka(Filiales del <br> Exterior):::sub
+        L --> La(Aliados):::sub
+    classDef titulo fill:#9434CB,stroke:#333234,stroke-width:2px
+    classDef Dominio fill:#C289E2,stroke:#333234
+    classDef sub fill:#F8ECFF,stoke:#9434CB
+</div>
+    
+    
+
+

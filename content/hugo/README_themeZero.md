@@ -11,9 +11,8 @@ layout: list
 
 Para empezar crear un tema se debe usar el comando:
 
-`
-hugo new theme <Nombre_del_tema>
-`
+`hugo new theme <Nombre_del_tema>`
+
 Este comando creará una carpeta con el nombre deseado en la carpeta themes con los siquientes directorios
 ```bash
 |--themes

@@ -1,7 +1,6 @@
 ---
 title: "Crear un tema desde cero"
 date: 2021-05-25T12:09:35-05:00
-draft: false
 type: without-menu
 layout: list
 ---
@@ -111,3 +110,4 @@ En la carpeta static se ubicaran las imagenes que necesite inlcuir en el diseño
 Referencias:
 
 >**[Migrating WordPress to Hugo: Course Reference](https://tygerbytes.github.io/wp2hugoref/#06-write-a-new-post-with-hugo)**
+

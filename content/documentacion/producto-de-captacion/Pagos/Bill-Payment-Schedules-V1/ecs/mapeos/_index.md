@@ -5,7 +5,8 @@ layout: single
 ---
 
 A continuación se especifican las transformaciones por operación:
-- [delete-schedules](deleteSchedules.json)
+
+{{< referenciarDoc "deleteSchedules.Json" "deleteSchedules" >}}
 
 ## Excepciones de sistema
 | Código respuesta proveedor | Código API | Status code HTTP | Title                 | Descripción                                                                 |

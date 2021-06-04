@@ -1,7 +1,6 @@
 ---
 title: "¿Cómo añadir un tema y configurarlo?"
 date: 2021-05-25T12:09:35-05:00
-draft: false
 type: without-menu
 layout: list
 ---
@@ -84,8 +83,3 @@ Referencias:
 >**[Migrating WordPress to Hugo: Course Reference](https://tygerbytes.github.io/wp2hugoref/#06-write-a-new-post-with-hugo)**
 
 >**[Primeros pasos con Hugo](https://desarrolloweb.com/articulos/primeros-pasos-hugo)**
-
-
-
-
-

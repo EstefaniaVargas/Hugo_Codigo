@@ -13,7 +13,8 @@ html{
 
 .imagen-head{
     padding: 1.6rem 0rem 1.4rem 4rem;
-    order:0;
+    margin: 0rem 0rem 0rem 1rem;
+    order: 0;
 }
 
 .titulo-principal{
@@ -42,7 +43,7 @@ body {
 
     /*color:rgb(44, 44, 44);*/
     text-decoration: none; /*Link no subrayado*/
-    border-right-color: rgb(50, 50, 50);
+    border-right-color: rgb(40, 40, 40);
     border-right-width: 0.1rem;
     border-right-style: solid;
     background-color: white;
@@ -55,7 +56,7 @@ body {
 
 .contenido-principal{
     background-color: inherit;
-    color:rgb(44, 44, 44);
+    color:rgb(40, 40, 40);
     text-align: justify;
     order: 1;
 }
@@ -75,7 +76,7 @@ footer {
 
 .footer__content {
 
-    background-color: rgb(44, 44, 44);
+    background-color: rgb(40, 40, 40);
     display:flex;
     margin: 0;
     padding: 0;

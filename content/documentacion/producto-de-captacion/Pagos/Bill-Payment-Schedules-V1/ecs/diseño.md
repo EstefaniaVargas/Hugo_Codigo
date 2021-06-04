@@ -6,7 +6,9 @@ layout: "single"
 
 Corresponde al diseño del o los componentes de servicio, service component, que realiza el servicio a partir de la implementación de su interfaz. 
 
-{{< prueba url="images/bill-payment-schedules-v1/flujo_apiconnect.png" >}}
+
+{{< img "flujo_apiconnect.png" >}}
+
 
 ### Componente de servicio Bill - Payment - Schedules operation delete
 En el componente del servicio, se implementa la lógica del servicio a través de una API.

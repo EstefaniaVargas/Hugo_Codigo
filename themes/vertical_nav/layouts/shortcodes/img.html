@@ -1,5 +1,21 @@
-{{ $img :=  $.Page.Resources.GetMatch (.Get 0) }}
+{{ $img := $.Page.Resources.GetMatch (.Get 0) }}
 
-<figure>
-    <img  src= "{{ $img.RelPermalink }}" alt ="Displayimg" width="100%">
-</figure>
+{{ if  $img  }}
+
+    <figure>
+        <img src="{{ $img.RelPermalink}}" alt="Displayimg" width="100%">
+    </figure>
+
+{{else}}
+
+   {{ $base := $.Page.Parent.RelPermalink }}
+   {{ $name := .Get 0}}
+   {{ $url := path.Join $base $name }}
+   
+    <figure>
+        <img src="{{ $url}}" alt="Displayimg" width="100%">
+    </figure>
+    
+{{end}}
+
+

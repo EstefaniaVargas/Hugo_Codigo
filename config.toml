@@ -4,15 +4,14 @@ title = "My New Hugo Site"
 theme = "vertical_nav"
 relativeURLs = true
 
-
 [outputs]
-  home = ["HTML", "JSON"]
+  home = ["HTML"]
 
 [params]
   custom_css = ["/css/vertical-nav/layouts.css", 
                 "/css/vertical-nav/menus.css", 
                 "/css/vertical-nav/lists.css", 
-                "/css/vertical-nav/shortcodes.css"
+                "/css/vertical-nav/shortcodes.css",
                 ]
 
 [menu]

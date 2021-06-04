@@ -2,6 +2,8 @@
 title: "ECS"
 date: 2021-05-20T10:31:03-05:00
 layout: single
+resources: 
+- src: "images/*"
 ---
 
 ## Especificación de Componentes del servicio
@@ -26,3 +28,5 @@ layout: single
 En esta vista se muestran componentes implementados en unidades de despliegue dependiendo de la plataforma.
 
 {{< img "diagrama_técnico.jpg" >}}
+
+

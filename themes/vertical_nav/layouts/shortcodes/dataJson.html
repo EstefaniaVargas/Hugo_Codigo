@@ -1,0 +1,13 @@
+<!--Leer archivos Json-->
+{{ $url := .Get "url" }}
+{{ $filetxt := readFile $url }}
+
+<section class="JSON1">
+
+    <pre>
+        <code>
+            {{ $filetxt }}
+        </code>
+    </pre>
+
+</section>

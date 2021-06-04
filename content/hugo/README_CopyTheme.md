@@ -42,13 +42,10 @@ Con Git se puede agregar el tema más rápido y consiguiendo un flujo de trabajo
 - Método clone
 
     Estando en la carpeta raíz del proyecto, se ejecuta lo siguiente:
-
     ```
         git clone --depth 1  <ssh/https url github> themes/<nombre nuevo tema>
     ```
-
     Luego borrar el directorio .git
-
     ```
         rm -Recurse -Force themes/<nombre nuevo tema>/.git
     ```

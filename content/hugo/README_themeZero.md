@@ -8,7 +8,6 @@ layout: list
 
 # ¿Cómo crear un tema ?
 
-
 Para empezar crear un tema se debe usar el comando:
 
 `hugo new theme <Nombre_del_tema>`
@@ -29,7 +28,7 @@ De los cuales archetypes layouts y static corresponden a carpetas.
 
 El primero archetypes, corresponde a una carpeta donde se alojarán plantillas del forntmatter de los markdown que se creen más adelante.
 
-```
+```bash
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
@@ -60,7 +59,7 @@ En la carpeta "_ _default_" se encontrarán los archivos de los layouts basicos 
 ### Baseof
 
 Entendiendo como funciona el baseof, al abrirlo se puede observar la siguiente estructura.
-```
+```bash
 <!DOCTYPE html>
 <html>
     {{- partial "head.html" . -}}
@@ -78,7 +77,7 @@ Esta estructura funciona como una base de todas las paginas que se pueden hacer 
 ### Single
 
 Para manejar una pagina que funcione como una sola se puede usar la siguiente plantilla.
-```
+```bash
 {{ define "main" }}
 <main class="content">
     {{ .Content }}
@@ -90,7 +89,7 @@ Esto nos permitirá  visualizar un contenido sencillo que se escriba en el markd
 ### List
 
 Para manejar una pagina que se visualice como la lista de otras paginas o publicaciones se puede usar el siguiente template.
-```
+```bash
 {{ .Content }}
         
 {{ range.Data.Pages }}

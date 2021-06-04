@@ -9,10 +9,10 @@ relativeURLs = true
   home = ["HTML", "JSON"]
 
 [params]
-  custom_css = ["/css/template-vertical-nav/layouts.css", 
-                "/css/template-vertical-nav/menus.css", 
-                "/css/template-vertical-nav/lists.css", 
-                "/css/template-vertical-nav/shortcodes.css"
+  custom_css = ["/css/vertical-nav/layouts.css", 
+                "/css/vertical-nav/menus.css", 
+                "/css/vertical-nav/lists.css", 
+                "/css/vertical-nav/shortcodes.css"
                 ]
 
 [menu]
